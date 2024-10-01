@@ -22,7 +22,7 @@ stopifnot(length(src_jn_y)==3L)
 cat(sprintf("loading datasets %s\n", paste(c(data_name, y_data_name), collapse=", ")))
 
 x = as_duckplyr_tibble(data.table::fread(src_jn_x, showProgress=FALSE, data.table=FALSE, na.strings=""))
-JN = lapply(sapply(simplify=FALSE, src_jn_y, data.table::fread, showProgress=FALSE, stringsAsFactors=TRUE, data.table=FALSE, na.strings=""), as_duckplyr_tibble)
+JN = lapply(sapply(simplify=FALSE, src_jn_y, data.table::fread, showProgress=FALSE, data.table=FALSE, na.strings=""), as_duckplyr_tibble)
 print(nrow(x))
 sapply(sapply(JN, nrow), print) -> nul
 small = JN$small
